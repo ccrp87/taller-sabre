@@ -6,5 +6,5 @@ engine = create_engine(DATABASE_URL, echo=True)
 
 # Dependency para FastAPI
 def get_session():
-    with Session(engine) as session:
-        yield session
+    with Session(engine) as db_session:
+        yield db_session

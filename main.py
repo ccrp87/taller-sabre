@@ -1,8 +1,8 @@
 from contextlib import asynccontextmanager
-from fastapi import Depends, FastAPI
+from fastapi import FastAPI
 from sqlmodel import SQLModel
-from api.reservarion_schema import ReservationCreateSchema, ReservationResponseSchema
-from services.reservation_service import ReservationService
+from api.reservation_router import reservation_router
+from api.room_router import room_router
 from db import engine
 
 
@@ -12,10 +12,12 @@ async def lifespan(app:FastAPI):
     yield
 
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(lifespan=lifespan, title="Hotel Reservation API", version="1.0.0")
+app.include_router(reservation_router)
+app.include_router(room_router)
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Hotel Reservation API"}
 
 
-@app.post("/reservation",response_model=None)
-async def create_reservation( ):
-    #return reservation_service.create_reservation()
-    print("")
