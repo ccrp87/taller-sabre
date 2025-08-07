@@ -88,7 +88,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"room_id\": 5805,\n  \"check_in\": \"1992-08-24T07:27:59.170Z\",\n  \"check_out\": \"1988-12-02T19:44:22.532Z\"\n}",
+									"raw": "{\n  \"room_id\": 5,\n  \"check_in\": \"1992-08-24T07:27:59.170Z\",\n  \"check_out\": \"1988-12-02T19:44:22.532Z\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -96,21 +96,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/api/reservations/:id",
+									"raw": "{{baseUrl}}/api/reservations/1",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"reservations",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "6950",
-											"description": "(Required) "
-										}
+										"1"
 									]
 								}
 							},
@@ -228,21 +221,14 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/reservations/:id",
+									"raw": "{{baseUrl}}/api/reservations/1",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"reservations",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "6950",
-											"description": "(Required) "
-										}
+										"1"
 									]
 								}
 							},
@@ -342,22 +328,15 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/reservations/:id/checkin",
+									"raw": "{{baseUrl}}/api/reservations/2/checkin",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"reservations",
-										":id",
+										"2",
 										"checkin"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "6950",
-											"description": "(Required) "
-										}
 									]
 								}
 							},
@@ -459,22 +438,15 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/reservations/:id/checkout",
+									"raw": "{{baseUrl}}/api/reservations/2/checkout",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"reservations",
-										":id",
+										"2",
 										"checkout"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "6950",
-											"description": "(Required) "
-										}
 									]
 								}
 							},
@@ -576,22 +548,15 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/reservations/:id/cancelled",
+									"raw": "{{baseUrl}}/api/reservations/1/cancelled",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"reservations",
-										":id",
+										"1",
 										"cancelled"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "6950",
-											"description": "(Required) "
-										}
 									]
 								}
 							},
@@ -698,7 +663,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"guest_id\": 6760,\n  \"guest\": {\n    \"full_name\": \"string\",\n    \"email\": \"string\",\n    \"phone\": \"string\"\n  },\n  \"room_id\": 427,\n  \"check_in\": \"2012-06-21T19:17:46.295Z\",\n  \"check_out\": \"1999-07-13T05:26:46.832Z\",\n  \"status\": \"pending\"\n}",
+									"raw": "{\n  \"guest_id\": 0,\n  \"guest\": {\n    \"full_name\": \"string\",\n    \"email\": \"user@example.com\",\n    \"phone\": \"string\"\n  },\n  \"room_id\": 0,\n  \"check_in\": \"2025-08-07T17:43:13.707000\",\n  \"check_out\": \"2025-08-07T17:43:13.707000\",\n  \"status\": \"pending\",\n  \"id\": 3\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -879,22 +844,15 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/rooms/:room_id/status",
+									"raw": "{{baseUrl}}/api/rooms/0/status",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"rooms",
-										":room_id",
+										"0",
 										"status"
-									],
-									"variable": [
-										{
-											"key": "room_id",
-											"value": "559",
-											"description": "(Required) "
-										}
 									]
 								}
 							},

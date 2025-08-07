@@ -25,17 +25,18 @@ class ReservationService():
                 return JSONResponse(status_code=404, content={"message": "Room not found"})
             
             # Check if the guest exists, if not, create a new guest
-            guest = self.guest_repository.find_guest_by_id(reservation.guest.email)
+            guest = self.guest_repository.find_guest_by_id(reservation.guest_id)
             if not guest:
                 guest = self.guest_repository.create_guest(reservation.guest)
             # Create the reservation
+            reservation.guest_id = guest.id
             reservation_data = self.reservation_repository.create_reservation(reservation=reservation)
             
             return ReservationResponseSchema(
                 room_id=reservation_data.room_id,
                 check_out=reservation_data.check_out,
                 check_in=reservation_data.check_in,
-                guest_id=reservation_data.guest_id,
+                guest_id=guest.id,
                 status=reservation_data.status,
                 guest=GuestCreateSchema(
                     email=guest.email,
@@ -66,8 +67,8 @@ class ReservationService():
                 return JSONResponse(status_code=404, content={"message": "Reservation not found"})
             
             reservation.status = StatusReservation.inhouse
-            self.reservation_repository.update_reservation(reservation)
-            self.reservation_repository.cancel_all_overlaps(reservation.room_id,reservation.check_out)
+            print(self.reservation_repository.update_reservation(reservation))
+            self.reservation_repository.cancel_all_overlaps(reservation.room_id, id_reservation)
             return reservation
         except Exception as e:
             return JSONResponse(status_code=500, content={"message": "Error checking in reservation"})

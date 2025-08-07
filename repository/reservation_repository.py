@@ -54,12 +54,14 @@ class ReservationRepository():
     
     # cancel all overlapping reservations
     # This method cancels all reservations that overlap with the given room and checkout date
-    def cancel_all_overlaps(self,room_id,date_checkout:datetime):
+    def cancel_all_overlaps(self,room_id,reservation_id:int):
         try:
-            return self.db_session.exec(update(Reservation).where((Reservation.room_id != room_id) & (Reservation.status== StatusReservation.inhouse)&(Reservation.check_out<=date_checkout)).values(status=StatusReservation.cancelled))
+            self.db_session.exec(update(Reservation).where((Reservation.id != reservation_id)&(Reservation.room_id == room_id) & (Reservation.status== StatusReservation.inhouse)).values(status=StatusReservation.cancelled))
+            self.db_session.commit() 
+
         except Exception as e:
             self.db_session.rollback()
-            raise Exception(f"Error cancelling overlapping reservations for room {room_id} on {date_checkout}")
+            raise Exception(f"Error cancelling overlapping reservations for room {room_id}.")
         
     # find a reservation by ID
     def get_reservation_by_id(self,id:int)->Reservation:
