@@ -29,3 +29,5 @@ class Reservation(SQLModel, table= True):
     check_out :datetime = Field(default=None)
     status : StatusReservation = Field(default=StatusReservation.pending) 
 
+class test:
+    pass
