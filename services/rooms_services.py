@@ -32,4 +32,4 @@ class RoomsService:
             else:
                 return RoomStatus(status="Disponible",room_id=room_id) 
         except Exception as e:
-            return JSONResponse(status_code=500, content={"message": "Error retrieving room status"})     
+            return JSONResponse(status_code=500, content={"message": "Error retrieving room status "})     

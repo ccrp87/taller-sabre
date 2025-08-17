@@ -35,6 +35,6 @@ app.include_router(room_router)
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to the Hotel Reservation API"}
+    return {"message": "Welcome to the Hotel Reservation API3"}
 
 
